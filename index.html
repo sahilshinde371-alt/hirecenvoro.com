@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENVORO - Connecting Talent with Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-blue: #1a73e8;
+            --dark-blue: #0d47a1;
+            --light-blue: #e8f0fe;
+            --grey: #5f6368;
+            --light-grey: #f8f9fa;
+            --dark-grey: #3c4043;
+            --white: #ffffff;
+        }
+        
+        body {
+            color: var(--dark-grey);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--grey);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        /* Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .login-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 115, 232, 0.8), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            animation: slideInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: white;
+            animation: slideInUp 1s ease;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--light-grey);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .about-text.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .about-image {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .about-image.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-list {
+            margin: 20px 0;
+        }
+        
+        .mission-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .mission-list i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            background: var(--light-blue);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Service Details */
+        .service-details {
+            display: none;
+            background: var(--light-grey);
+            padding: 50px 0;
+            margin-top: 30px;
+        }
+        
+        .service-details.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .service-detail-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .service-detail-image {
+            flex: 1;
+        }
+        
+        .service-detail-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .service-detail-text {
+            flex: 1;
+        }
+        
+        .benefits-list {
+            margin: 20px 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefits-list i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light-grey);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background: var(--light-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .service-detail-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">CENVORO</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#findjobs">Find Jobs</a></li>
+                    <li><a href="#hiretalent">Hire Talent</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="login-btn">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Connecting Talent with Opportunities</h1>
+                <p>At CENVORO, we believe growth happens when the right people meet the right opportunities. We bridge corporates, institutes, and professionals to build future-ready teams.</p>
+                <a href="#about" class="btn">Learn More</a>
+                <a href="#contact" class="btn btn-outline">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About CENVORO</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At CENVORO, we believe growth happens when the right people meet the right opportunities. We are a consultancy that bridges corporates, institutes, and professionals to build future-ready teams.</p>
+                    <p>Our mission is simple:</p>
+                    <ul class="mission-list">
+                        <li><i class="fas fa-check-circle"></i> Help companies hire smarter</li>
+                        <li><i class="fas fa-check-circle"></i> Help candidates grow faster</li>
+                        <li><i class="fas fa-check-circle"></i> Help institutes enable better placements</li>
+                    </ul>
+                    <p>With strict compliance, data privacy, and personalized solutions, CENVORO stands as a trusted partner for long-term success.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="CENVORO Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="candidates">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>For Professionals</h3>
+                        <p>Jobs, career guidance, and skill development</p>
+                        <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="institutes">
+                    <div class="service-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>For Institutes</h3>
+                        <p>Placement partnerships, industry training, and corporate connects</p>
+                        <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="employers">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>For Employers</h3>
+                        <p>Recruitment solutions and workforce training</p>
+                        <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <div class="service-details" id="service-details">
+        <!-- Candidates Service Detail -->
+        <div class="service-detail" id="candidates-detail">
+            <div class="container">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Career Growth">
+                    </div>
+                    <div class="service-detail-text">
+                        <h2>For Candidates – Career Growth Support</h2>
+                        <p>At CENVORO, we believe careers should be built, not just jobs filled. We guide individuals at every stage of their professional journey with:</p>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Access to opportunities across industries and MNCs</li>
+                            <li><i class="fas fa-check"></i> Resume building & interview preparation support</li>
+                            <li><i class="fas fa-check"></i> Skill development and mentorship programs designed to match industry expectations</li>
+                        </ul>
+                        <h3>Key Benefits:</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-star"></i> Better career opportunities</li>
+                            <li><i class="fas fa-star"></i> Improved employability skills</li>
+                            <li><i class="fas fa-star"></i> Professional growth with guided mentorship</li>
+                            <li><i class="fas fa-star"></i> Confidence to succeed in interviews and workplaces</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Institutes Service Detail -->
+        <div class="service-detail" id="institutes-detail">
+            <div class="container">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
+                    </div>
+                    <div class="service-detail-text">
+                        <h2>For Institutes – Placement Partnerships</h2>
+                        <p>CENVORO partners with colleges, universities, and training institutes to strengthen student placement outcomes. We act as a bridge between institutes and corporates by offering:</p>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Structured MoUs for smooth placement processes</li>
+                            <li><i class="fas fa-check"></i> Industry-ready training modules for students and alumni</li>
+                            <li><i class="fas fa-check"></i> Corporate connects and exclusive recruitment drives</li>
+                            <li><i class="fas fa-check"></i> Continuous feedback loop from employers to improve curriculum relevance</li>
+                        </ul>
+                        <h3>Key Benefits:</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-star"></i> Stronger institute–industry relationships</li>
+                            <li><i class="fas fa-star"></i> Higher placement success rates</li>
+                            <li><i class="fas fa-star"></i> Better-prepared graduates entering the workforce</li>
+                            <li><i class="fas fa-star"></i> Enhanced reputation and credibility for the institute</li>
+                        </ul>
+                        <a href="#contact" class="btn">Partner With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Employers Service Detail -->
+        <div class="service-detail" id="employers-detail">
+            <div class="container">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Recruitment Solutions">
+                    </div>
+                    <div class="service-detail-text">
+                        <h2>For Employers – Smart Recruitment & Training Solutions</h2>
+                        <p>Hiring the right talent is one of the biggest challenges organizations face. CENVORO simplifies the process by providing:</p>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> End-to-end recruitment support from sourcing to onboarding</li>
+                            <li><i class="fas fa-check"></i> Pre-screened freshers and experienced candidates aligned with role & culture fit</li>
+                            <li><i class="fas fa-check"></i> Tailored corporate training in leadership, communication, and professional skills</li>
+                            <li><i class="fas fa-check"></i> Ongoing support to ensure better retention and workforce performance</li>
+                        </ul>
+                        <h3>Key Benefits:</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-star"></i> Faster and cost-effective hiring</li>
+                            <li><i class="fas fa-star"></i> Access to industry-ready candidates</li>
+                            <li><i class="fas fa-star"></i> Lower attrition with culture-fit hiring</li>
+                            <li><i class="fas fa-star"></i> Stronger, future-ready teams</li>
+                        </ul>
+                        <a href="#contact" class="btn">Find Talent</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Reach out to us for any inquiries or to learn more about our services.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>connect@hirecenvoro.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 8976246255 / +91 8650592915</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>Swarna Anant CHS,<br>Koparkhairane, navimumbai - 400709</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Mobile no.</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CENVORO</h3>
+                    <p>Connecting talent with opportunities to build future-ready teams.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#findjobs">Find Jobs</a></li>
+                        <li><a href="#hiretalent">Hire Talent</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-service="candidates">For Professionals</a></li>
+                        <li><a href="#" data-service="institutes">For Institutes</a></li>
+                        <li><a href="#" data-service="employers">For Employers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> connect@hirecenvoro.com</li>
+                        <li><i class="fas fa-phone"></i> +91 8976246255 /+91 8650592915</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Swarna Anant CHS, Koparkhairane, Navimumbai - 400709</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 CENVORO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const animateOnScroll = function() {
+                const aboutText = document.querySelector('.about-text');
+                const aboutImage = document.querySelector('.about-image');
+                const serviceCards = document.querySelectorAll('.service-card');
+                
+                // About section animation
+                if (isElementInViewport(aboutText)) {
+                    aboutText.classList.add('animate');
+                }
+                
+                if (isElementInViewport(aboutImage)) {
+                    aboutImage.classList.add('animate');
+                }
+                
+                // Service cards animation
+                serviceCards.forEach((card, index) => {
+                    if (isElementInViewport(card)) {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, index * 200);
+                    }
+                });
+            };
+            
+            // Check if element is in viewport
+            const isElementInViewport = function(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+            };
+            
+            // Initial check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Service details functionality
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            const serviceDetails = document.getElementById('service-details');
+            const serviceDetailSections = document.querySelectorAll('.service-detail');
+            
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serviceCard = this.closest('.service-card');
+                    const serviceType = serviceCard.getAttribute('data-service');
+                    
+                    // Hide all service details
+                    serviceDetailSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the selected service detail
+                    const targetDetail = document.getElementById(`${serviceType}-detail`);
+                    if (targetDetail) {
+                        targetDetail.style.display = 'block';
+                        serviceDetails.classList.add('active');
+                        
+                        // Scroll to service details
+                        serviceDetails.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Footer service links
+            const footerServiceLinks = document.querySelectorAll('.footer-links a[data-service]');
+            footerServiceLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serviceType = this.getAttribute('data-service');
+                    
+                    // Hide all service details
+                    serviceDetailSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the selected service detail
+                    const targetDetail = document.getElementById(`${serviceType}-detail`);
+                    if (targetDetail) {
+                        targetDetail.style.display = 'block';
+                        serviceDetails.classList.add('active');
+                        
+                        // Scroll to service details
+                        serviceDetails.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
