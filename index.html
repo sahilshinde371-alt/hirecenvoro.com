@@ -155,6 +155,8 @@
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--dark-blue);
+            background: none;
+            border: none;
         }
 
         /* Mobile Menu Styles */
@@ -168,44 +170,61 @@
             background: white;
             z-index: 999;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            text-align: center;
+            padding-top: 100px;
         }
 
         .mobile-menu.active {
             display: flex;
         }
 
-        .mobile-menu .nav-links {
-            flex-direction: column;
-            gap: 30px;
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+            width: 100%;
         }
 
-        .mobile-menu .nav-links li {
-            margin: 0;
+        .mobile-nav-links li {
+            margin-bottom: 25px;
         }
 
-        .mobile-menu .nav-links a {
-            font-size: 1.2rem;
+        .mobile-nav-links a {
+            text-decoration: none;
             color: var(--dark-grey);
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            transition: color 0.3s;
         }
 
-        .mobile-menu .login-btn {
+        .mobile-nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .mobile-login-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
             margin-top: 20px;
-            padding: 12px 30px;
-            font-size: 1.1rem;
+            display: inline-block;
         }
 
         .close-menu {
             position: absolute;
             top: 30px;
             right: 30px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--dark-blue);
             cursor: pointer;
             background: none;
             border: none;
+            z-index: 1001;
         }
         
         /* Hero Section */
@@ -586,11 +605,6 @@
             section {
                 padding: 60px 0;
             }
-
-            /* Mobile menu styles */
-            .mobile-menu.active {
-                display: flex;
-            }
         }
     </style>
 </head>
@@ -609,9 +623,9 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#" class="login-btn">Login</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
+                <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
@@ -621,17 +635,18 @@
         <button class="close-menu" id="closeMenu">
             <i class="fas fa-times"></i>
         </button>
-        <ul class="nav-links">
-            <li><a href="#home" class="mobile-nav-link">Home</a></li>
-            <li><a href="#about" class="mobile-nav-link">About</a></li>
-            <li><a href="#services" class="mobile-nav-link">Services</a></li>
-            <li><a href="#findjobs" class="mobile-nav-link">Find Jobs</a></li>
-            <li><a href="#hiretalent" class="mobile-nav-link">Hire Talent</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-            <li><a href="#" class="login-btn mobile-nav-link">Login</a></li>
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#findjobs">Find Jobs</a></li>
+            <li><a href="#hiretalent">Hire Talent</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" class="mobile-login-btn">Login</a></li>
         </ul>
     </div>
 
+    <!-- Rest of your HTML content remains exactly the same -->
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -923,7 +938,7 @@
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
             const closeMenu = document.getElementById('closeMenu');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
 
             // Open mobile menu
             hamburger.addEventListener('click', function() {
@@ -945,6 +960,7 @@
                 });
             });
 
+            // Rest of your existing JavaScript code remains the same
             // Animation on scroll
             const animateOnScroll = function() {
                 const aboutText = document.querySelector('.about-text');
