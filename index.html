@@ -119,7 +119,7 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--dark-blue);
+            color: var(--dark-blue); /* This will remain blue for logo */
             text-decoration: none;
         }
         
@@ -247,14 +247,14 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            color: white;
+            color: white; /* Changed to white */
             animation: slideInDown 1s ease;
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            color: white;
+            color: white; /* Changed to white */
             animation: slideInUp 1s ease;
         }
         
@@ -496,7 +496,7 @@
         }
         
         .footer-column h3 {
-            color: white;
+            color: white; /* Footer headings in white */
             margin-bottom: 25px;
             font-size: 1.2rem;
         }
@@ -548,6 +548,21 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             color: #ddd;
+        }
+        
+        /* NEW: White text styles for specific elements */
+        .white-text {
+            color: white !important;
+        }
+        
+        .hero .btn-outline {
+            color: white;
+            border-color: white;
+        }
+        
+        .hero .btn-outline:hover {
+            background: white;
+            color: var(--primary-blue);
         }
         
         /* Animations */
@@ -646,13 +661,12 @@
         </ul>
     </div>
 
-    <!-- Rest of your HTML content remains exactly the same -->
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Connecting Talent with Opportunities</h1>
-                <p>At CENVORO, we believe growth happens when the right people meet the right opportunities. We bridge corporates, institutes, and professionals to build future-ready teams.</p>
+                <h1 class="white-text">Connecting Talent with Opportunities</h1>
+                <p class="white-text">At CENVORO, we believe growth happens when the right people meet the right opportunities. We bridge corporates, institutes, and professionals to build future-ready teams.</p>
                 <a href="#about" class="btn">Learn More</a>
                 <a href="#contact" class="btn btn-outline">Get Started</a>
             </div>
@@ -757,7 +771,7 @@
             <div class="container">
                 <div class="service-detail-content">
                     <div class="service-detail-image">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
+                        <img src="https://images.unsplash.com/photo-1524178239883-9a317a1e4f71?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
                     </div>
                     <div class="service-detail-text">
                         <h2>For Institutes – Placement Partnerships</h2>
