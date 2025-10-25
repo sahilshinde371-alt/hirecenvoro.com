@@ -849,12 +849,17 @@
             transform: translateY(-3px);
         }
         
+        /* CHANGED: Footer paragraph text color to white */
+        .footer-column p {
+            color: white !important;
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: #ddd;
+            color: white !important; /* CHANGED: From #ddd to white */
         }
         
         /* NEW: White text styles for specific elements */
@@ -1301,7 +1306,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>CENVORO</h3>
-                    <p>Connecting talent with opportunities to build future-ready teams.</p>
+                    <!-- CHANGED: Removed hyphen from "future-ready" -->
+                    <p>Connecting talent with opportunities to build future ready teams.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1341,6 +1347,7 @@
             </div>
             
             <div class="copyright">
+                <!-- CHANGED: Copyright text color is now white -->
                 <p>&copy; 2025 CENVORO. All rights reserved.</p>
             </div>
         </div>
@@ -1570,6 +1577,3 @@
     </script>
 </body>
 </html>
-
-
-
