@@ -537,10 +537,11 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        /* Services Section - ENHANCED with Modern Animations */
+        /* UPDATED Services Section - Mobile-like Layout */
         .services {
             position: relative;
             overflow: hidden;
+            background: var(--light-grey);
         }
         
         .services-grid {
@@ -648,14 +649,14 @@
             font-family: 'Montserrat', sans-serif;
         }
         
-        /* Service Details */
+        /* UPDATED Service Details - Mobile-like Layout */
         .service-details {
             display: none;
-            background: var(--light-grey);
-            padding: 50px 0;
-            margin-top: 30px;
-            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             overflow: hidden;
+            margin-top: 30px;
         }
         
         .service-details.active {
@@ -663,42 +664,31 @@
             animation: fadeIn 0.5s ease;
         }
         
-        .service-detail-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-        
         .service-detail-image {
-            flex: 1;
-            position: relative;
+            width: 100%;
+            height: 250px;
             overflow: hidden;
-            border-radius: 10px;
         }
         
         .service-detail-image img {
             width: 100%;
-            border-radius: 10px;
-            transition: transform 0.5s ease;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .service-detail-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .service-detail-text {
-            flex: 1;
+        .service-detail-content {
+            padding: 30px;
         }
         
         /* CHANGED: Increased font size for service detail headings and paragraphs */
-        .service-detail-text h2 {
+        .service-detail-content h2 {
             font-size: 2.2rem; /* Increased from default */
             margin-bottom: 20px;
             color: var(--dark-blue);
             font-family: 'Montserrat', sans-serif;
         }
         
-        .service-detail-text p {
+        .service-detail-content p {
             font-size: 1.15rem; /* Increased from default */
             line-height: 1.7;
             color: #555;
@@ -715,17 +705,9 @@
             margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.5s ease;
             font-size: 1.1rem; /* Increased from default */
             line-height: 1.6;
             font-family: 'Poppins', sans-serif;
-        }
-        
-        .benefits-list.animate li {
-            opacity: 1;
-            transform: translateX(0);
         }
         
         .benefits-list i {
@@ -735,11 +717,24 @@
         }
         
         /* CHANGED: Increased font size for service detail subheadings */
-        .service-detail-text h3 {
+        .service-detail-content h3 {
             font-size: 1.6rem; /* Increased from default */
             margin: 25px 0 15px;
             color: var(--dark-blue);
             font-family: 'Montserrat', sans-serif;
+        }
+        
+        .back-to-services {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-services:hover {
+            color: var(--dark-blue);
         }
         
         /* Contact Section */
@@ -1119,11 +1114,11 @@
                 font-size: 1.05rem; /* Slightly smaller on mobile */
             }
             
-            .service-detail-text h2 {
+            .service-detail-content h2 {
                 font-size: 1.8rem; /* Adjusted for mobile */
             }
             
-            .service-detail-text p {
+            .service-detail-content p {
                 font-size: 1.05rem; /* Adjusted for mobile */
             }
             
@@ -1131,7 +1126,7 @@
                 font-size: 1rem; /* Adjusted for mobile */
             }
             
-            .service-detail-text h3 {
+            .service-detail-content h3 {
                 font-size: 1.4rem; /* Adjusted for mobile */
             }
         }
@@ -1217,7 +1212,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- UPDATED Services Section with Mobile-like Layout -->
     <section class="services" id="services">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1226,7 +1221,9 @@
         </div>
         <div class="container">
             <h2 class="section-title">Our Core Services</h2>
-            <div class="services-grid">
+            
+            <!-- Services Grid -->
+            <div class="services-grid" id="services-grid">
                 <div class="service-card" data-service="candidates">
                     <div class="service-icon">
                         <i class="fas fa-user-graduate"></i>
@@ -1260,19 +1257,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Service Details -->
-    <div class="service-details" id="service-details">
-        <!-- Candidates Service Detail -->
-        <div class="service-detail" id="candidates-detail">
-            <div class="container">
-                <div class="service-detail-content">
+            
+            <!-- Service Details - Mobile-like Layout -->
+            <div class="service-details" id="service-details">
+                <!-- Candidates Service Detail -->
+                <div class="service-detail" id="candidates-detail">
                     <div class="service-detail-image">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Career Growth">
                     </div>
-                    <div class="service-detail-text">
+                    <div class="service-detail-content">
                         <h2>For Candidates – Career Growth Support</h2>
                         <p>At CENVORO, we believe careers should be built, not just jobs filled. We guide individuals at every stage of their professional journey with:</p>
                         <ul class="benefits-list">
@@ -1288,19 +1281,16 @@
                             <li><i class="fas fa-star"></i> Confidence to succeed in interviews and workplaces</li>
                         </ul>
                         <a href="#contact" class="btn">Get Started</a>
+                        <a href="#" class="back-to-services">← Back to Services</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Institutes Service Detail -->
-        <div class="service-detail" id="institutes-detail">
-            <div class="container">
-                <div class="service-detail-content">
+                
+                <!-- Institutes Service Detail -->
+                <div class="service-detail" id="institutes-detail">
                     <div class="service-detail-image">
                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
                     </div>
-                    <div class="service-detail-text">
+                    <div class="service-detail-content">
                         <h2>For Institutes – Placement Partnerships</h2>
                         <p>CENVORO partners with colleges, universities, and training institutes to strengthen student placement outcomes. We act as a bridge between institutes and corporates by offering:</p>
                         <ul class="benefits-list">
@@ -1317,19 +1307,16 @@
                             <li><i class="fas fa-star"></i> Enhanced reputation and credibility for the institute</li>
                         </ul>
                         <a href="#contact" class="btn">Partner With Us</a>
+                        <a href="#" class="back-to-services">← Back to Services</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Employers Service Detail -->
-        <div class="service-detail" id="employers-detail">
-            <div class="container">
-                <div class="service-detail-content">
+                
+                <!-- Employers Service Detail -->
+                <div class="service-detail" id="employers-detail">
                     <div class="service-detail-image">
                         <img src="https://img.freepik.com/free-photo/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working_146671-13569.jpg?t=st=1721564726~exp=1721568326~hmac=0c8d4d6c6c9e6a5a5b5c5d5e5f5a5b5c5d5e5f5a5b5c5d5e5f5a5b5c5d5e5f5a&w=1380" alt="Recruitment Solutions">
                     </div>
-                    <div class="service-detail-text">
+                    <div class="service-detail-content">
                         <h2>For Employers – Smart Recruitment & Training Solutions</h2>
                         <p>Hiring the right talent is one of the biggest challenges organizations face. CENVORO simplifies the process by providing:</p>
                         <ul class="benefits-list">
@@ -1346,11 +1333,12 @@
                             <li><i class="fas fa-star"></i> Stronger, future-ready teams</li>
                         </ul>
                         <a href="#contact" class="btn">Find Talent</a>
+                        <a href="#" class="back-to-services">← Back to Services</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1626,57 +1614,73 @@
             // Check on scroll
             window.addEventListener('scroll', animateOnScroll);
             
-            // Service details functionality
-            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            // UPDATED Service details functionality
+            const servicesGrid = document.getElementById('services-grid');
             const serviceDetails = document.getElementById('service-details');
             const serviceDetailSections = document.querySelectorAll('.service-detail');
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            const backToServicesButtons = document.querySelectorAll('.back-to-services');
+            const footerServiceLinks = document.querySelectorAll('.footer-links a[data-service]');
             
+            // Show service details when Learn More is clicked
             learnMoreButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const serviceCard = this.closest('.service-card');
                     const serviceType = serviceCard.getAttribute('data-service');
                     
-                    // Hide all service details
-                    serviceDetailSections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    
-                    // Show the selected service detail
-                    const targetDetail = document.getElementById(`${serviceType}-detail`);
-                    if (targetDetail) {
-                        targetDetail.style.display = 'block';
-                        serviceDetails.classList.add('active');
-                        
-                        // Scroll to service details
-                        serviceDetails.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    showServiceDetail(serviceType);
                 });
             });
             
-            // Footer service links
-            const footerServiceLinks = document.querySelectorAll('.footer-links a[data-service]');
+            // Show service details when footer links are clicked
             footerServiceLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const serviceType = this.getAttribute('data-service');
                     
-                    // Hide all service details
-                    serviceDetailSections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    
-                    // Show the selected service detail
-                    const targetDetail = document.getElementById(`${serviceType}-detail`);
-                    if (targetDetail) {
-                        targetDetail.style.display = 'block';
-                        serviceDetails.classList.add('active');
-                        
-                        // Scroll to service details
-                        serviceDetails.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    showServiceDetail(serviceType);
                 });
             });
+            
+            // Back to services functionality
+            backToServicesButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    hideServiceDetails();
+                });
+            });
+            
+            function showServiceDetail(serviceType) {
+                // Hide services grid
+                servicesGrid.style.display = 'none';
+                
+                // Hide all service details
+                serviceDetailSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show the selected service detail
+                const targetDetail = document.getElementById(`${serviceType}-detail`);
+                if (targetDetail) {
+                    targetDetail.style.display = 'block';
+                    serviceDetails.classList.add('active');
+                    
+                    // Scroll to service details
+                    serviceDetails.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            function hideServiceDetails() {
+                // Show services grid
+                servicesGrid.style.display = 'grid';
+                
+                // Hide service details
+                serviceDetails.classList.remove('active');
+                
+                // Scroll to services section
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }
             
             // Contact form submission
             const contactForm = document.getElementById('contactForm');
