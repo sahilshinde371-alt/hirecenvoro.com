@@ -389,7 +389,7 @@
             transform: rotate(90deg);
         }
         
-        /* Hero Section - KEPT ORIGINAL with slight font size adjustment */
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 115, 232, 0.8), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
             height: 100vh;
@@ -410,9 +410,8 @@
             z-index: 2;
         }
         
-        /* CHANGED: Slightly decreased the font size of "AT THE CENTER OF GROWTH" */
         .hero h1 {
-            font-size: 3.2rem; /* Reduced from 3.5rem */
+            font-size: 3.2rem;
             margin-bottom: 10px;
             color: white;
             animation: slideInDown 1s ease;
@@ -438,7 +437,7 @@
             line-height: 1.7;
         }
         
-        /* About Section - ENHANCED */
+        /* About Section */
         .about {
             background: var(--light-grey);
             position: relative;
@@ -628,8 +627,9 @@
             width: 100%;
         }
         
+        /* CHANGED: Increased font size for service descriptions */
         .service-content p {
-            font-size: 1.05rem;
+            font-size: 1.15rem; /* Increased from 1.05rem */
             line-height: 1.7;
             color: #555;
             transition: color 0.3s ease;
@@ -690,10 +690,27 @@
             flex: 1;
         }
         
+        /* CHANGED: Increased font size for service detail headings and paragraphs */
+        .service-detail-text h2 {
+            font-size: 2.2rem; /* Increased from default */
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .service-detail-text p {
+            font-size: 1.15rem; /* Increased from default */
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
         .benefits-list {
             margin: 20px 0;
         }
         
+        /* CHANGED: Increased font size for benefits list */
         .benefits-list li {
             margin-bottom: 10px;
             display: flex;
@@ -701,6 +718,9 @@
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.5s ease;
+            font-size: 1.1rem; /* Increased from default */
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
         }
         
         .benefits-list.animate li {
@@ -712,6 +732,14 @@
             color: var(--primary-blue);
             margin-right: 10px;
             margin-top: 5px;
+        }
+        
+        /* CHANGED: Increased font size for service detail subheadings */
+        .service-detail-text h3 {
+            font-size: 1.6rem; /* Increased from default */
+            margin: 25px 0 15px;
+            color: var(--dark-blue);
+            font-family: 'Montserrat', sans-serif;
         }
         
         /* Contact Section */
@@ -829,6 +857,11 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
+        }
+        
+        /* CHANGED: Added spacing between CENVORO and Quick Links */
+        .footer-column:first-child {
+            margin-bottom: 20px; /* Added space between CENVORO and Quick Links */
         }
         
         .footer-column h3 {
@@ -1032,6 +1065,11 @@
             .about .section-title {
                 font-size: 2rem;
             }
+            
+            /* Reset spacing for mobile */
+            .footer-column:first-child {
+                margin-bottom: 0;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1076,6 +1114,26 @@
             .mission-list li {
                 font-size: 1rem;
             }
+            
+            .service-content p {
+                font-size: 1.05rem; /* Slightly smaller on mobile */
+            }
+            
+            .service-detail-text h2 {
+                font-size: 1.8rem; /* Adjusted for mobile */
+            }
+            
+            .service-detail-text p {
+                font-size: 1.05rem; /* Adjusted for mobile */
+            }
+            
+            .benefits-list li {
+                font-size: 1rem; /* Adjusted for mobile */
+            }
+            
+            .service-detail-text h3 {
+                font-size: 1.4rem; /* Adjusted for mobile */
+            }
         }
     </style>
 </head>
@@ -1117,7 +1175,7 @@
         </ul>
     </div>
 
-    <!-- Hero Section - KEPT ORIGINAL with slight font size adjustment -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="particles" id="particles"></div>
         <div class="container">
@@ -1131,7 +1189,7 @@
         </div>
     </section>
 
-    <!-- About Section - ENHANCED -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1159,7 +1217,7 @@
         </div>
     </section>
 
-    <!-- Services Section - ENHANCED with Modern Animations -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
