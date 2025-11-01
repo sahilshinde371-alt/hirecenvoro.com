@@ -6,6 +6,9 @@
     <title>CENVORO - Connecting Talent with Opportunities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
@@ -18,7 +21,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
@@ -52,6 +55,7 @@
         h1, h2, h3, h4 {
             color: var(--dark-blue);
             margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
         
         p {
@@ -218,6 +222,7 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .logo:after {
@@ -415,6 +420,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             font-weight: 700;
             letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .hero .subtitle {
@@ -423,6 +429,7 @@
             color: white;
             animation: slideInUp 1s ease;
             font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .hero .description {
@@ -434,7 +441,7 @@
             line-height: 1.7;
         }
         
-        /* About Section - UPDATED */
+        /* About Section */
         .about {
             background: var(--light-grey);
             position: relative;
@@ -483,29 +490,17 @@
             transform: scale(1.03);
         }
         
-        /* UPDATED: About section text styling */
-        .about-text p {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.8;
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-        
         .mission-list {
-            margin: 25px 0;
+            margin: 20px 0;
         }
         
         .mission-list li {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
             opacity: 0;
             transform: translateY(10px);
             transition: all 0.5s ease;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
         }
         
         .mission-list.animate li {
@@ -519,35 +514,53 @@
         
         .mission-list i {
             color: var(--primary-blue);
-            margin-right: 15px;
+            margin-right: 10px;
             margin-top: 5px;
-            font-size: 1.3rem;
         }
         
-        /* Services Section - UPDATED */
+        /* Enhanced About Section Typography */
+        .about .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #444;
+        }
+        
+        .mission-list li {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        /* Services Section */
         .services {
             position: relative;
             overflow: hidden;
-            background: #f9fafc;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .service-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) scale(0.95);
             position: relative;
             overflow: hidden;
-            border: 1px solid #eef2f7;
+            cursor: pointer;
         }
         
         .service-card:before {
@@ -557,7 +570,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, var(--primary-blue), #4a90e2);
+            background: linear-gradient(90deg, var(--primary-blue), var(--dark-blue));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -569,79 +582,103 @@
         
         .service-card.animate {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
         
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .service-icon {
             background: var(--light-blue);
-            height: 100px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
         }
         
         .service-card:hover .service-icon {
-            background: linear-gradient(135deg, var(--primary-blue), #4a90e2);
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
         }
         
         .service-icon i {
             font-size: 3rem;
             color: var(--primary-blue);
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
         }
         
         .service-card:hover .service-icon i {
             color: white;
-            transform: scale(1.15) rotate(5deg);
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .service-icon:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+        }
+        
+        .service-card:hover .service-icon:after {
+            transform: translateX(100%) rotate(45deg);
         }
         
         .service-content {
-            padding: 35px 30px;
+            padding: 30px;
         }
         
         .service-content h3 {
-            margin-bottom: 18px;
-            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .service-content h3:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .service-card:hover .service-content h3:after {
+            width: 100%;
         }
         
         .service-content p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 25px;
-            color: #3c4043;
-            font-weight: 500;
+            color: #555;
+            transition: color 0.3s ease;
         }
         
-        .service-features {
-            margin: 20px 0;
-            padding: 0;
-            list-style: none;
+        .service-card:hover .service-content p {
+            color: #333;
         }
         
-        .service-features li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            font-size: 1rem;
-            color: #5f6368;
-            font-weight: 500;
-        }
-        
-        .service-features i {
-            color: var(--primary-blue);
-            margin-right: 12px;
-            font-size: 1.1rem;
+        /* Enhanced Services Section */
+        .services .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
         /* Service Details */
@@ -686,21 +723,6 @@
             flex: 1;
         }
         
-        .service-detail-text h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-        }
-        
-        .service-detail-text p {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #3c4043;
-            font-weight: 500;
-            margin-bottom: 25px;
-        }
-        
         .benefits-list {
             margin: 20px 0;
         }
@@ -712,9 +734,6 @@
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.5s ease;
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #3c4043;
         }
         
         .benefits-list.animate li {
@@ -726,7 +745,6 @@
             color: var(--primary-blue);
             margin-right: 10px;
             margin-top: 5px;
-            font-size: 1.1rem;
         }
         
         /* Contact Section */
@@ -850,6 +868,7 @@
             color: white;
             margin-bottom: 25px;
             font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .footer-links {
@@ -1025,6 +1044,25 @@
             }
         }
         
+        /* NEW: Bounce animation for service cards */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content, .service-detail-content, .contact-container {
@@ -1041,6 +1079,11 @@
             
             .hero .description {
                 font-size: 1.1rem;
+            }
+            
+            .services .section-title,
+            .about .section-title {
+                font-size: 2rem;
             }
         }
         
@@ -1071,6 +1114,20 @@
             
             .mobile-nav-links li {
                 transition-delay: calc(0.1s * var(--i));
+            }
+            
+            .services .section-title,
+            .about .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            .about-text p,
+            .mission-list li {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1127,7 +1184,7 @@
         </div>
     </section>
 
-    <!-- About Section - UPDATED -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1155,7 +1212,7 @@
         </div>
     </section>
 
-    <!-- Services Section - UPDATED -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1171,12 +1228,7 @@
                     </div>
                     <div class="service-content">
                         <h3>For Candidates</h3>
-                        <p>Jobs, career guidance, and skill development to help you grow faster and achieve your career goals.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Access to premium job opportunities</li>
-                            <li><i class="fas fa-check"></i> Personalized career guidance</li>
-                            <li><i class="fas fa-check"></i> Skill development programs</li>
-                        </ul>
+                        <p>Jobs, career guidance, and skill development</p>
                         <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
                     </div>
                 </div>
@@ -1187,12 +1239,7 @@
                     </div>
                     <div class="service-content">
                         <h3>For Institutes</h3>
-                        <p>Placement partnerships, industry training, and corporate connects to enable better placements.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Structured placement programs</li>
-                            <li><i class="fas fa-check"></i> Industry-aligned training</li>
-                            <li><i class="fas fa-check"></i> Corporate partnership opportunities</li>
-                        </ul>
+                        <p>Placement partnerships, industry training, and corporate connects</p>
                         <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
                     </div>
                 </div>
@@ -1203,12 +1250,7 @@
                     </div>
                     <div class="service-content">
                         <h3>For Employers</h3>
-                        <p>Recruitment solutions and workforce training to help you hire smarter and build future-ready teams.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> End-to-end recruitment</li>
-                            <li><i class="fas fa-check"></i> Pre-screened candidates</li>
-                            <li><i class="fas fa-check"></i> Customized workforce training</li>
-                        </ul>
+                        <p>Recruitment solutions and workforce training</p>
                         <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
                     </div>
                 </div>
@@ -1216,7 +1258,7 @@
         </div>
     </section>
 
-    <!-- Service Details - UPDATED -->
+    <!-- Service Details -->
     <div class="service-details" id="service-details">
         <!-- Candidates Service Detail -->
         <div class="service-detail" id="candidates-detail">
