@@ -6,8 +6,8 @@
     <title>CENVORO - Connecting Talent with Opportunities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts for Services and About sections -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for better readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
@@ -21,23 +21,26 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
             --primary-blue: #1a73e8;
             --dark-blue: #0d47a1;
             --light-blue: #e8f0fe;
-            --grey: #5f6368;
+            --grey: #444; /* Darker for better readability */
             --light-grey: #f8f9fa;
-            --dark-grey: #3c4043;
+            --dark-grey: #333; /* Darker for better contrast */
             --white: #ffffff;
+            --text-dark: #222; /* New darker text color */
         }
         
         body {
-            color: var(--dark-grey);
-            line-height: 1.6;
+            color: var(--text-dark);
+            line-height: 1.7; /* Improved line height for readability */
             overflow-x: hidden;
+            font-family: 'Inter', sans-serif; /* Better readability font */
+            font-weight: 400;
+            font-size: 16px; /* Base font size */
         }
         
         .container {
@@ -55,11 +58,16 @@
         h1, h2, h3, h4 {
             color: var(--dark-blue);
             margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif; /* Clean, modern headings */
+            font-weight: 600; /* Better weight for headings */
+            letter-spacing: -0.02em; /* Slightly tighter for better readability */
         }
         
         p {
-            margin-bottom: 15px;
-            color: var(--grey);
+            margin-bottom: 20px; /* More space between paragraphs */
+            color: var(--text-dark);
+            font-size: 1.05rem; /* Slightly larger for readability */
+            line-height: 1.7; /* Better line height */
         }
         
         .btn {
@@ -75,6 +83,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            font-family: 'Inter', sans-serif;
         }
         
         .btn:before {
@@ -113,6 +122,7 @@
             text-align: center;
             margin-bottom: 50px;
             position: relative;
+            font-size: 2.5rem; /* Larger for emphasis */
         }
         
         .section-title:after {
@@ -221,6 +231,7 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .logo:after {
@@ -250,10 +261,11 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--grey);
+            color: var(--text-dark);
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-family: 'Inter', sans-serif;
         }
         
         .nav-links a:after {
@@ -345,6 +357,7 @@
             display: block;
             padding: 10px 0;
             transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
         }
 
         .mobile-nav-links a:hover {
@@ -364,6 +377,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
         }
 
         .mobile-menu.active .mobile-login-btn {
@@ -418,6 +432,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             font-weight: 700;
             letter-spacing: 1px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Original font */
         }
         
         .hero .subtitle {
@@ -426,6 +441,7 @@
             color: white;
             animation: slideInUp 1s ease;
             font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Original font */
         }
         
         .hero .description {
@@ -435,9 +451,10 @@
             animation: slideInUp 1s ease;
             font-weight: 300;
             line-height: 1.7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Original font */
         }
         
-        /* About Section - ENHANCED */
+        /* About Section - ENHANCED TYPOGRAPHY */
         .about {
             background: var(--light-grey);
             position: relative;
@@ -491,12 +508,16 @@
         }
         
         .mission-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
             opacity: 0;
             transform: translateY(10px);
             transition: all 0.5s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
         
         .mission-list.animate li {
@@ -510,7 +531,7 @@
         
         .mission-list i {
             color: var(--primary-blue);
-            margin-right: 10px;
+            margin-right: 12px;
             margin-top: 5px;
         }
         
@@ -526,18 +547,11 @@
             font-size: 1.1rem;
             line-height: 1.8;
             font-weight: 400;
-            color: #444;
-            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
         }
         
-        .mission-list li {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #333;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        /* Services Section - ENHANCED with Modern Animations */
+        /* Services Section - ENHANCED TYPOGRAPHY */
         .services {
             position: relative;
             overflow: hidden;
@@ -629,13 +643,13 @@
         .service-content p {
             font-size: 1.05rem;
             line-height: 1.7;
-            color: #555;
+            color: var(--text-dark);
             transition: color 0.3s ease;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         
         .service-card:hover .service-content p {
-            color: #333;
+            color: var(--text-dark);
         }
         
         /* Enhanced Services Section */
@@ -699,6 +713,9 @@
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.5s ease;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
         
         .benefits-list.animate li {
@@ -712,7 +729,7 @@
             margin-top: 5px;
         }
         
-        /* Contact Section */
+        /* Contact Section - ENHANCED TYPOGRAPHY */
         .contact {
             background: var(--light-grey);
             position: relative;
@@ -753,6 +770,8 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
         }
         
         .form-control {
@@ -762,6 +781,7 @@
             border-radius: 5px;
             font-size: 16px;
             transition: border 0.3s, box-shadow 0.3s;
+            font-family: 'Inter', sans-serif;
         }
         
         .form-control:focus {
@@ -813,7 +833,7 @@
             transform: scale(1.1);
         }
         
-        /* Footer */
+        /* Footer - ENHANCED TYPOGRAPHY */
         footer {
             background: var(--dark-blue);
             color: white;
@@ -833,6 +853,7 @@
             color: white;
             margin-bottom: 25px;
             font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .footer-links {
@@ -844,6 +865,7 @@
             opacity: 0;
             transform: translateY(10px);
             transition: all 0.5s ease;
+            font-family: 'Inter', sans-serif;
         }
         
         .footer-links.animate li {
@@ -858,6 +880,7 @@
             position: relative;
             padding-left: 0;
             transition: padding-left 0.3s;
+            font-family: 'Inter', sans-serif;
         }
         
         .footer-links a:hover {
@@ -904,6 +927,8 @@
         /* CHANGED: Footer paragraph text color to white */
         .footer-column p {
             color: white !important;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
         }
         
         .copyright {
@@ -912,6 +937,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             color: white !important; /* CHANGED: From #ddd to white */
+            font-family: 'Inter', sans-serif;
         }
         
         /* NEW: White text styles for specific elements */
@@ -1129,7 +1155,7 @@
         </div>
     </section>
 
-    <!-- About Section - ENHANCED -->
+    <!-- About Section - ENHANCED TYPOGRAPHY -->
     <section class="about" id="about">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1157,7 +1183,7 @@
         </div>
     </section>
 
-    <!-- Services Section - ENHANCED with Modern Animations -->
+    <!-- Services Section - ENHANCED TYPOGRAPHY -->
     <section class="services" id="services">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1292,7 +1318,7 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - ENHANCED TYPOGRAPHY -->
     <section class="contact" id="contact">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1367,7 +1393,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - ENHANCED TYPOGRAPHY -->
     <footer>
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
