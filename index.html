@@ -6,7 +6,7 @@
     <title>CENVORO - Connecting Talent with Opportunities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts for Services and About sections -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon Links -->
@@ -21,7 +21,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
@@ -55,7 +55,6 @@
         h1, h2, h3, h4 {
             color: var(--dark-blue);
             margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
         }
         
         p {
@@ -222,7 +221,6 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .logo:after {
@@ -391,7 +389,7 @@
             transform: rotate(90deg);
         }
         
-        /* Hero Section */
+        /* Hero Section - KEPT ORIGINAL */
         .hero {
             background: linear-gradient(rgba(26, 115, 232, 0.8), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
             height: 100vh;
@@ -420,7 +418,6 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             font-weight: 700;
             letter-spacing: 1px;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .hero .subtitle {
@@ -429,7 +426,6 @@
             color: white;
             animation: slideInUp 1s ease;
             font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .hero .description {
@@ -441,7 +437,7 @@
             line-height: 1.7;
         }
         
-        /* About Section */
+        /* About Section - ENHANCED */
         .about {
             background: var(--light-grey);
             position: relative;
@@ -523,6 +519,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: 0.5px;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .about-text p {
@@ -530,15 +527,17 @@
             line-height: 1.8;
             font-weight: 400;
             color: #444;
+            font-family: 'Poppins', sans-serif;
         }
         
         .mission-list li {
             font-size: 1.1rem;
             font-weight: 500;
             color: #333;
+            font-family: 'Poppins', sans-serif;
         }
         
-        /* Services Section */
+        /* Services Section - ENHANCED with Modern Animations */
         .services {
             position: relative;
             overflow: hidden;
@@ -555,39 +554,22 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0;
-            transform: translateY(30px) scale(0.95);
+            transform: translateY(30px);
             position: relative;
             overflow: hidden;
             cursor: pointer;
         }
         
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--dark-blue));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover:before {
-            transform: scaleX(1);
-        }
-        
         .service-card.animate {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
         
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .service-icon {
@@ -596,9 +578,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
         }
         
         .service-card:hover .service-icon {
@@ -608,30 +589,12 @@
         .service-icon i {
             font-size: 3rem;
             color: var(--primary-blue);
-            transition: all 0.5s ease;
-            position: relative;
-            z-index: 2;
+            transition: all 0.4s ease;
         }
         
         .service-card:hover .service-icon i {
             color: white;
-            transform: scale(1.2) rotate(10deg);
-        }
-        
-        .service-icon:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transform: translateX(-100%) rotate(45deg);
-            transition: transform 0.6s ease;
-        }
-        
-        .service-card:hover .service-icon:after {
-            transform: translateX(100%) rotate(45deg);
+            transform: scale(1.1);
         }
         
         .service-content {
@@ -656,7 +619,7 @@
             width: 0;
             height: 2px;
             background: var(--primary-blue);
-            transition: width 0.3s ease;
+            transition: width 0.4s ease;
         }
         
         .service-card:hover .service-content h3:after {
@@ -668,6 +631,7 @@
             line-height: 1.7;
             color: #555;
             transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
         
         .service-card:hover .service-content p {
@@ -679,6 +643,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: 0.5px;
+            font-family: 'Montserrat', sans-serif;
         }
         
         /* Service Details */
@@ -868,7 +833,6 @@
             color: white;
             margin-bottom: 25px;
             font-size: 1.2rem;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .footer-links {
@@ -1044,25 +1008,6 @@
             }
         }
         
-        /* NEW: Bounce animation for service cards */
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content, .service-detail-content, .contact-container {
@@ -1170,7 +1115,7 @@
         </ul>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - KEPT ORIGINAL -->
     <section class="hero" id="home">
         <div class="particles" id="particles"></div>
         <div class="container">
@@ -1184,7 +1129,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - ENHANCED -->
     <section class="about" id="about">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
@@ -1212,7 +1157,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section - ENHANCED with Modern Animations -->
     <section class="services" id="services">
         <div class="bg-animation">
             <div class="floating-shape shape-1"></div>
