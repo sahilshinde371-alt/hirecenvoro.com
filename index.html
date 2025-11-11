@@ -825,11 +825,12 @@
         .contact-item:nth-child(2) { transition-delay: 0.2s; }
         .contact-item:nth-child(3) { transition-delay: 0.3s; }
         
+        /* FIXED: Address logo now maintains perfect circle shape */
         .contact-icon {
             background: var(--light-blue);
             width: 50px;
             height: 50px;
-            border-radius: 50%;
+            border-radius: 50%; /* Ensures perfect circle */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -837,6 +838,7 @@
             color: var(--primary-blue);
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            flex-shrink: 0; /* Prevents distortion */
         }
         
         .contact-item:hover .contact-icon {
@@ -1135,6 +1137,13 @@
             
             .service-detail-content h3 {
                 font-size: 1.4rem; /* Adjusted for mobile */
+            }
+            
+            /* FIXED: Ensure contact icons remain circular on mobile */
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
             }
         }
     </style>
@@ -1719,7 +1728,3 @@
     </script>
 </body>
 </html>
-
-
-
-
