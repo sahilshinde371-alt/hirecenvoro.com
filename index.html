@@ -32,6 +32,9 @@
             --light-grey: #f8f9fa;
             --dark-grey: #3c4043;
             --white: #ffffff;
+            --success: #4caf50;
+            --error: #f44336;
+            --facebook-blue: #4267B2;
         }
         
         body {
@@ -1047,6 +1050,416 @@
             }
         }
         
+        /* NEW: Authentication Modal Styles */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        
+        .auth-modal.active {
+            display: flex;
+        }
+        
+        .auth-container {
+            background: white;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideInUp 0.4s ease;
+            margin: auto;
+        }
+        
+        .auth-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .auth-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .auth-close:hover {
+            transform: scale(1.2);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--grey);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-tab.active {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--primary-blue);
+        }
+        
+        .auth-form {
+            padding: 30px;
+        }
+        
+        .auth-tab-content {
+            display: none;
+        }
+        
+        .auth-tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .auth-form .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+        
+        .auth-form .form-control:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+        
+        .otp-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .otp-input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+        
+        .resend-otp {
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .resend-otp button {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .resend-otp button:hover {
+            text-decoration: underline;
+        }
+        
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .form-footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: var(--success);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* NEW: Social Login Styles */
+        .social-login {
+            margin: 20px 0;
+        }
+        
+        .social-divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .social-divider:before,
+        .social-divider:after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .social-divider span {
+            padding: 0 15px;
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+        
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            color: var(--dark-grey);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* UPDATED: Google button with "G" in original colors */
+        .social-btn.google {
+            border-color: #ddd;
+            color: var(--dark-grey);
+            position: relative;
+        }
+        
+        .social-btn.google:hover {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
+        }
+        
+        /* Google "G" with original colors */
+        .google-g {
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-btn.google:hover .google-g {
+            color: white;
+            background: none;
+        }
+        
+        .social-btn.facebook {
+            border-color: var(--facebook-blue);
+            color: var(--facebook-blue);
+        }
+        
+        .social-btn.facebook:hover {
+            background: var(--facebook-blue);
+            color: white;
+        }
+        
+        /* NEW: Job Listings Section */
+        .job-listings {
+            display: none;
+            padding: 100px 0 80px;
+            background: var(--light-grey);
+            min-height: 100vh;
+        }
+        
+        .job-listings.active {
+            display: block;
+        }
+        
+        .job-filters {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .job-filters h3 {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+        
+        .job-company {
+            color: var(--grey);
+            font-weight: 500;
+        }
+        
+        .job-body {
+            padding: 20px;
+        }
+        
+        .job-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .job-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--grey);
+        }
+        
+        .job-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .job-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-salary {
+            font-weight: 600;
+            color: var(--success);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .user-name {
+            font-weight: 600;
+        }
+        
+        .user-logout {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .user-logout:hover {
+            text-decoration: underline;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content, .service-detail-content, .contact-container {
@@ -1145,6 +1558,23 @@
                 height: 50px;
                 border-radius: 50%;
             }
+            
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+            }
+            
+            .otp-group {
+                justify-content: center;
+            }
+            
+            .otp-input {
+                width: 40px;
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -1158,10 +1588,10 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#findjobs">Find Jobs</a></li>
+                    <li><a href="#findjobs" class="find-jobs-link">Find Jobs</a></li>
                     <li><a href="#hiretalent">Hire Talent</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="login-btn">Login</a></li>
+                    <li><a href="#" class="login-btn user-login-link">Login</a></li>
                 </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -1179,10 +1609,10 @@
             <li style="--i: 1"><a href="#home">Home</a></li>
             <li style="--i: 2"><a href="#about">About</a></li>
             <li style="--i: 3"><a href="#services">Services</a></li>
-            <li style="--i: 4"><a href="#findjobs">Find Jobs</a></li>
+            <li style="--i: 4"><a href="#findjobs" class="find-jobs-link">Find Jobs</a></li>
             <li style="--i: 5"><a href="#hiretalent">Hire Talent</a></li>
             <li style="--i: 6"><a href="#contact">Contact</a></li>
-            <li><a href="#" class="mobile-login-btn">Login</a></li>
+            <li><a href="#" class="mobile-login-btn user-login-link">Login</a></li>
         </ul>
     </div>
 
@@ -1194,7 +1624,7 @@
                 <h1 class="white-text">AT THE CENTER OF GROWTH</h1>
                 <p class="subtitle white-text">Connecting talent with opportunities</p>
                 <p class="description white-text">At CENVORO, we believe growth happens when the right people meet the right opportunities. We bridge corporates, institutes, and professionals to build future-ready teams.</p>
-                <a href="#findjobs" class="btn pulse">Find Jobs</a>
+                <a href="#findjobs" class="btn pulse find-jobs-link">Find Jobs</a>
                 <a href="#hiretalent" class="btn btn-outline">Hire Talent</a>
             </div>
         </div>
@@ -1304,7 +1734,7 @@
                 <!-- Institutes Service Detail -->
                 <div class="service-detail" id="institutes-detail">
                     <div class="service-detail-image">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
+                        <img src="https://images.unsplash.com/photo-1524178239883-673b8a82bb9f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Institute Partnerships">
                     </div>
                     <div class="service-detail-content">
                         <h2>For Institutes – Placement Partnerships</h2>
@@ -1457,7 +1887,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#findjobs">Find Jobs</a></li>
+                        <li><a href="#findjobs" class="find-jobs-link">Find Jobs</a></li>
                         <li><a href="#hiretalent">Hire Talent</a></li>
                     </ul>
                 </div>
@@ -1487,6 +1917,164 @@
             </div>
         </div>
     </footer>
+
+    <!-- NEW: Authentication Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Welcome to CENVORO</h2>
+                <button class="auth-close" id="authClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <div class="auth-form">
+                <!-- Login Form -->
+                <div class="auth-tab-content active" id="login-tab">
+                    <div class="social-login">
+                        <div class="social-buttons">
+                            <button class="social-btn google" id="googleLogin">
+                                <span class="google-g">G</span>
+                                Continue with Google
+                            </button>
+                            <button class="social-btn facebook" id="facebookLogin">
+                                <i class="fab fa-facebook-f"></i>
+                                Continue with Facebook
+                            </button>
+                        </div>
+                        <div class="social-divider">
+                            <span>or</span>
+                        </div>
+                    </div>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" class="form-control" required>
+                            <div class="error-message" id="loginEmailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginOTP">OTP</label>
+                            <div class="otp-group">
+                                <input type="text" id="loginOTP1" class="otp-input" maxlength="1" required>
+                                <input type="text" id="loginOTP2" class="otp-input" maxlength="1" required>
+                                <input type="text" id="loginOTP3" class="otp-input" maxlength="1" required>
+                                <input type="text" id="loginOTP4" class="otp-input" maxlength="1" required>
+                                <input type="text" id="loginOTP5" class="otp-input" maxlength="1" required>
+                                <input type="text" id="loginOTP6" class="otp-input" maxlength="1" required>
+                            </div>
+                            <button type="button" class="btn btn-outline" id="sendLoginOTP" style="margin-top: 10px; width: 100%;">Send OTP</button>
+                            <div class="error-message" id="loginOTPError">Please enter the OTP sent to your email</div>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Verify OTP & Login</button>
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="#" class="switch-to-register">Register here</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Register Form -->
+                <div class="auth-tab-content" id="register-tab">
+                    <div class="social-login">
+                        <div class="social-buttons">
+                            <button class="social-btn google" id="googleRegister">
+                                <span class="google-g">G</span>
+                                Continue with Google
+                            </button>
+                            <button class="social-btn facebook" id="facebookRegister">
+                                <i class="fab fa-facebook-f"></i>
+                                Continue with Facebook
+                            </button>
+                        </div>
+                        <div class="social-divider">
+                            <span>or</span>
+                        </div>
+                    </div>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerName">Full Name</label>
+                            <input type="text" id="registerName" class="form-control" required>
+                            <div class="error-message" id="registerNameError">Please enter your full name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPhone">Phone Number</label>
+                            <input type="tel" id="registerPhone" class="form-control" required>
+                            <div class="error-message" id="registerPhoneError">Please enter a valid phone number</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" id="registerEmail" class="form-control" required>
+                            <div class="error-message" id="registerEmailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerOTP">OTP</label>
+                            <div class="otp-group">
+                                <input type="text" id="registerOTP1" class="otp-input" maxlength="1" required>
+                                <input type="text" id="registerOTP2" class="otp-input" maxlength="1" required>
+                                <input type="text" id="registerOTP3" class="otp-input" maxlength="1" required>
+                                <input type="text" id="registerOTP4" class="otp-input" maxlength="1" required>
+                                <input type="text" id="registerOTP5" class="otp-input" maxlength="1" required>
+                                <input type="text" id="registerOTP6" class="otp-input" maxlength="1" required>
+                            </div>
+                            <button type="button" class="btn btn-outline" id="sendRegisterOTP" style="margin-top: 10px; width: 100%;">Send OTP</button>
+                            <div class="resend-otp">
+                                <button type="button" id="resendRegisterOTP">Resend OTP</button>
+                            </div>
+                            <div class="error-message" id="registerOTPError">Please enter the OTP sent to your email</div>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Verify OTP & Register</button>
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="#" class="switch-to-login">Login here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Job Listings Section -->
+    <section class="job-listings" id="jobListings">
+        <div class="container">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <div>
+                    <div class="user-name" id="userName">User</div>
+                    <button class="user-logout" id="userLogout">Logout</button>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Available Jobs</h2>
+            
+            <div class="job-filters">
+                <h3>Filter Jobs</h3>
+                <div class="filter-group">
+                    <select id="jobTypeFilter">
+                        <option value="">All Job Types</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="internship">Internship</option>
+                        <option value="contract">Contract</option>
+                    </select>
+                    <select id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="pune">Pune</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
+                    <input type="text" id="keywordFilter" placeholder="Search by keyword">
+                </div>
+            </div>
+            
+            <div class="job-grid" id="jobGrid">
+                <!-- Job cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
 
     <script>
         // Mobile Menu Functionality
@@ -1724,6 +2312,656 @@
                     }
                 });
             });
+
+            // NEW: Authentication System
+            const authModal = document.getElementById('authModal');
+            const authClose = document.getElementById('authClose');
+            const authTabs = document.querySelectorAll('.auth-tab');
+            const switchToRegister = document.querySelector('.switch-to-register');
+            const switchToLogin = document.querySelector('.switch-to-login');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const findJobsLinks = document.querySelectorAll('.find-jobs-link');
+            const userLoginLinks = document.querySelectorAll('.user-login-link');
+            const jobListings = document.getElementById('jobListings');
+            const userLogout = document.getElementById('userLogout');
+            const userName = document.getElementById('userName');
+            const userAvatar = document.getElementById('userAvatar');
+            const jobGrid = document.getElementById('jobGrid');
+            const googleLogin = document.getElementById('googleLogin');
+            const facebookLogin = document.getElementById('facebookLogin');
+            const googleRegister = document.getElementById('googleRegister');
+            const facebookRegister = document.getElementById('facebookRegister');
+            const sendLoginOTP = document.getElementById('sendLoginOTP');
+            const sendRegisterOTP = document.getElementById('sendRegisterOTP');
+            const resendRegisterOTP = document.getElementById('resendRegisterOTP');
+            
+            // Show auth modal when clicking Find Jobs
+            findJobsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    authModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Show auth modal when clicking Login
+            userLoginLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    authModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close auth modal
+            authClose.addEventListener('click', function() {
+                authModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Switch between login and register tabs
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding form
+                    document.querySelectorAll('.auth-tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`${targetTab}-tab`).classList.add('active');
+                });
+            });
+            
+            // Switch to register from login footer
+            switchToRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                authTabs.forEach(t => t.classList.remove('active'));
+                document.querySelector('.auth-tab[data-tab="register"]').classList.add('active');
+                
+                document.querySelectorAll('.auth-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('register-tab').classList.add('active');
+            });
+            
+            // Switch to login from register footer
+            switchToLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                authTabs.forEach(t => t.classList.remove('active'));
+                document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
+                
+                document.querySelectorAll('.auth-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('login-tab').classList.add('active');
+            });
+            
+            // OTP input navigation
+            document.querySelectorAll('.otp-input').forEach((input, index, inputs) => {
+                input.addEventListener('input', function() {
+                    if (this.value.length === 1 && index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                });
+                
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                        inputs[index - 1].focus();
+                    }
+                });
+            });
+            
+            // Generate OTP
+            function generateOTP() {
+                return Math.floor(100000 + Math.random() * 900000).toString();
+            }
+            
+            // Send OTP for login
+            sendLoginOTP.addEventListener('click', function() {
+                const email = document.getElementById('loginEmail').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailRegex.test(email)) {
+                    document.getElementById('loginEmailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('loginEmailError').style.display = 'block';
+                    return;
+                }
+                
+                // Generate and store OTP
+                const otp = generateOTP();
+                localStorage.setItem('loginOTP', otp);
+                localStorage.setItem('loginEmail', email);
+                
+                // In a real application, you would send this OTP to the user's email
+                // For demo purposes, we'll show it in an alert
+                alert(`OTP sent to ${email}: ${otp}\n\n(In a real application, this would be sent via email)`);
+                
+                document.getElementById('loginEmailError').style.display = 'none';
+                
+                // Disable button for 30 seconds
+                this.disabled = true;
+                this.textContent = 'Resend OTP in 30s';
+                
+                let countdown = 30;
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    this.textContent = `Resend OTP in ${countdown}s`;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        this.disabled = false;
+                        this.textContent = 'Send OTP';
+                    }
+                }, 1000);
+            });
+            
+            // Send OTP for registration
+            sendRegisterOTP.addEventListener('click', function() {
+                const name = document.getElementById('registerName').value;
+                const phone = document.getElementById('registerPhone').value;
+                const email = document.getElementById('registerEmail').value;
+                
+                let isValid = true;
+                
+                // Reset error messages
+                document.querySelectorAll('#register-tab .error-message').forEach(msg => {
+                    msg.style.display = 'none';
+                });
+                
+                // Validate name
+                if (name.trim() === '') {
+                    document.getElementById('registerNameError').textContent = 'Please enter your full name';
+                    document.getElementById('registerNameError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate phone
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    document.getElementById('registerPhoneError').textContent = 'Please enter a valid 10-digit phone number';
+                    document.getElementById('registerPhoneError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    document.getElementById('registerEmailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('registerEmailError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (!isValid) return;
+                
+                // Generate and store OTP
+                const otp = generateOTP();
+                localStorage.setItem('registerOTP', otp);
+                localStorage.setItem('registerEmail', email);
+                
+                // In a real application, you would send this OTP to the user's email
+                // For demo purposes, we'll show it in an alert
+                alert(`OTP sent to ${email}: ${otp}\n\n(In a real application, this would be sent via email)`);
+                
+                // Disable button for 30 seconds
+                this.disabled = true;
+                let countdown = 30;
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    this.textContent = `Resend OTP in ${countdown}s`;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        this.disabled = false;
+                        this.textContent = 'Send OTP';
+                    }
+                }, 1000);
+            });
+            
+            // Resend OTP for registration
+            resendRegisterOTP.addEventListener('click', function() {
+                const email = document.getElementById('registerEmail').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailRegex.test(email)) {
+                    document.getElementById('registerEmailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('registerEmailError').style.display = 'block';
+                    return;
+                }
+                
+                // Generate and store OTP
+                const otp = generateOTP();
+                localStorage.setItem('registerOTP', otp);
+                localStorage.setItem('registerEmail', email);
+                
+                // In a real application, you would send this OTP to the user's email
+                // For demo purposes, we'll show it in an alert
+                alert(`OTP resent to ${email}: ${otp}\n\n(In a real application, this would be sent via email)`);
+                
+                document.getElementById('registerEmailError').style.display = 'none';
+            });
+            
+            // Registration form validation and submission
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('registerName').value;
+                const phone = document.getElementById('registerPhone').value;
+                const email = document.getElementById('registerEmail').value;
+                const otp1 = document.getElementById('registerOTP1').value;
+                const otp2 = document.getElementById('registerOTP2').value;
+                const otp3 = document.getElementById('registerOTP3').value;
+                const otp4 = document.getElementById('registerOTP4').value;
+                const otp5 = document.getElementById('registerOTP5').value;
+                const otp6 = document.getElementById('registerOTP6').value;
+                const enteredOTP = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+                
+                const storedOTP = localStorage.getItem('registerOTP');
+                const storedEmail = localStorage.getItem('registerEmail');
+                
+                let isValid = true;
+                
+                // Reset error messages
+                document.querySelectorAll('#register-tab .error-message').forEach(msg => {
+                    msg.style.display = 'none';
+                });
+                
+                // Validate name
+                if (name.trim() === '') {
+                    document.getElementById('registerNameError').textContent = 'Please enter your full name';
+                    document.getElementById('registerNameError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate phone
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    document.getElementById('registerPhoneError').textContent = 'Please enter a valid 10-digit phone number';
+                    document.getElementById('registerPhoneError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    document.getElementById('registerEmailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('registerEmailError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate OTP
+                if (enteredOTP.length !== 6) {
+                    document.getElementById('registerOTPError').textContent = 'Please enter the complete 6-digit OTP';
+                    document.getElementById('registerOTPError').style.display = 'block';
+                    isValid = false;
+                } else if (enteredOTP !== storedOTP || email !== storedEmail) {
+                    document.getElementById('registerOTPError').textContent = 'Invalid OTP. Please check and try again.';
+                    document.getElementById('registerOTPError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Store user data in localStorage
+                    const userData = {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        method: 'email'
+                    };
+                    
+                    localStorage.setItem('cenvoroUser', JSON.stringify(userData));
+                    localStorage.setItem('cenvoroLoggedIn', 'true');
+                    localStorage.setItem('cenvoroCurrentUser', JSON.stringify(userData));
+                    
+                    // Show success message and redirect to job listings
+                    alert('Registration successful! You can now view job listings.');
+                    registerForm.reset();
+                    
+                    // Close modal and show job listings
+                    authModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Update user info and show job listings
+                    updateUserInfo();
+                    showJobListings();
+                    
+                    // Clear OTP from storage
+                    localStorage.removeItem('registerOTP');
+                    localStorage.removeItem('registerEmail');
+                }
+            });
+            
+            // Login form validation and submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value;
+                const otp1 = document.getElementById('loginOTP1').value;
+                const otp2 = document.getElementById('loginOTP2').value;
+                const otp3 = document.getElementById('loginOTP3').value;
+                const otp4 = document.getElementById('loginOTP4').value;
+                const otp5 = document.getElementById('loginOTP5').value;
+                const otp6 = document.getElementById('loginOTP6').value;
+                const enteredOTP = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+                
+                const storedOTP = localStorage.getItem('loginOTP');
+                const storedEmail = localStorage.getItem('loginEmail');
+                
+                let isValid = true;
+                
+                // Reset error messages
+                document.querySelectorAll('#login-tab .error-message').forEach(msg => {
+                    msg.style.display = 'none';
+                });
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    document.getElementById('loginEmailError').textContent = 'Please enter a valid email address';
+                    document.getElementById('loginEmailError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Validate OTP
+                if (enteredOTP.length !== 6) {
+                    document.getElementById('loginOTPError').textContent = 'Please enter the complete 6-digit OTP';
+                    document.getElementById('loginOTPError').style.display = 'block';
+                    isValid = false;
+                } else if (enteredOTP !== storedOTP || email !== storedEmail) {
+                    document.getElementById('loginOTPError').textContent = 'Invalid OTP. Please check and try again.';
+                    document.getElementById('loginOTPError').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Check if user exists in localStorage
+                    const storedUser = localStorage.getItem('cenvoroUser');
+                    
+                    if (storedUser) {
+                        const userData = JSON.parse(storedUser);
+                        
+                        if (userData.email === email) {
+                            // Successful login
+                            localStorage.setItem('cenvoroLoggedIn', 'true');
+                            localStorage.setItem('cenvoroCurrentUser', JSON.stringify(userData));
+                            
+                            // Close modal and show job listings
+                            authModal.classList.remove('active');
+                            document.body.style.overflow = '';
+                            
+                            // Update user info and show job listings
+                            updateUserInfo();
+                            showJobListings();
+                            
+                            // Reset form
+                            loginForm.reset();
+                            
+                            // Clear OTP from storage
+                            localStorage.removeItem('loginOTP');
+                            localStorage.removeItem('loginEmail');
+                        } else {
+                            document.getElementById('loginOTPError').textContent = 'No account found with this email. Please register first.';
+                            document.getElementById('loginOTPError').style.display = 'block';
+                        }
+                    } else {
+                        document.getElementById('loginOTPError').textContent = 'No account found with this email. Please register first.';
+                        document.getElementById('loginOTPError').style.display = 'block';
+                    }
+                }
+            });
+            
+            // Google Login/Register
+            function handleGoogleAuth() {
+                // In a real application, this would redirect to Google OAuth
+                // For demo purposes, we'll simulate the process
+                
+                const randomNum = Math.floor(Math.random() * 1000);
+                const demoUser = {
+                    name: `Google User ${randomNum}`,
+                    email: `googleuser${randomNum}@gmail.com`,
+                    phone: '9876543210',
+                    method: 'google'
+                };
+                
+                localStorage.setItem('cenvoroUser', JSON.stringify(demoUser));
+                localStorage.setItem('cenvoroLoggedIn', 'true');
+                localStorage.setItem('cenvoroCurrentUser', JSON.stringify(demoUser));
+                
+                // Close modal and show job listings
+                authModal.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Update user info and show job listings
+                updateUserInfo();
+                showJobListings();
+                
+                alert('Successfully logged in with Google!');
+            }
+            
+            // Facebook Login/Register
+            function handleFacebookAuth() {
+                // In a real application, this would redirect to Facebook OAuth
+                // For demo purposes, we'll simulate the process
+                
+                const randomNum = Math.floor(Math.random() * 1000);
+                const demoUser = {
+                    name: `Facebook User ${randomNum}`,
+                    email: `facebookuser${randomNum}@facebook.com`,
+                    phone: '9876543210',
+                    method: 'facebook'
+                };
+                
+                localStorage.setItem('cenvoroUser', JSON.stringify(demoUser));
+                localStorage.setItem('cenvoroLoggedIn', 'true');
+                localStorage.setItem('cenvoroCurrentUser', JSON.stringify(demoUser));
+                
+                // Close modal and show job listings
+                authModal.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Update user info and show job listings
+                updateUserInfo();
+                showJobListings();
+                
+                alert('Successfully logged in with Facebook!');
+            }
+            
+            // Add event listeners for social login buttons
+            googleLogin.addEventListener('click', handleGoogleAuth);
+            facebookLogin.addEventListener('click', handleFacebookAuth);
+            googleRegister.addEventListener('click', handleGoogleAuth);
+            facebookRegister.addEventListener('click', handleFacebookAuth);
+            
+            // Update user info in the job listings section
+            function updateUserInfo() {
+                const currentUser = JSON.parse(localStorage.getItem('cenvoroCurrentUser'));
+                if (currentUser) {
+                    userName.textContent = currentUser.name;
+                    userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+                }
+            }
+            
+            // Show job listings
+            function showJobListings() {
+                // Hide all sections except job listings
+                document.querySelectorAll('section').forEach(section => {
+                    if (section.id !== 'jobListings') {
+                        section.style.display = 'none';
+                    }
+                });
+                
+                // Show job listings
+                jobListings.classList.add('active');
+                
+                // Load job data
+                loadJobs();
+            }
+            
+            // Logout functionality
+            userLogout.addEventListener('click', function() {
+                localStorage.removeItem('cenvoroLoggedIn');
+                localStorage.removeItem('cenvoroCurrentUser');
+                
+                // Hide job listings and show all sections
+                jobListings.classList.remove('active');
+                document.querySelectorAll('section').forEach(section => {
+                    if (section.id !== 'jobListings') {
+                        section.style.display = 'block';
+                    }
+                });
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+            
+            // Check if user is already logged in
+            function checkLoginStatus() {
+                const isLoggedIn = localStorage.getItem('cenvoroLoggedIn');
+                
+                if (isLoggedIn === 'true') {
+                    updateUserInfo();
+                    showJobListings();
+                }
+            }
+            
+            // Load job data
+            function loadJobs() {
+                // Sample job data
+                const jobs = [
+                    {
+                        id: 1,
+                        title: 'Frontend Developer',
+                        company: 'Tech Solutions Inc.',
+                        location: 'Mumbai',
+                        type: 'full-time',
+                        salary: '₹6,00,000 - ₹9,00,000',
+                        description: 'We are looking for a skilled Frontend Developer to join our team. You will be responsible for building user interfaces and implementing designs.',
+                        requirements: 'HTML, CSS, JavaScript, React'
+                    },
+                    {
+                        id: 2,
+                        title: 'Data Analyst',
+                        company: 'Analytics Pro',
+                        location: 'Bangalore',
+                        type: 'full-time',
+                        salary: '₹5,00,000 - ₹8,00,000',
+                        description: 'Join our data team to analyze and interpret complex data sets. Help drive business decisions with data-driven insights.',
+                        requirements: 'SQL, Python, Excel, Data Visualization'
+                    },
+                    {
+                        id: 3,
+                        title: 'Marketing Intern',
+                        company: 'Digital Boost',
+                        location: 'Pune',
+                        type: 'internship',
+                        salary: '₹15,000 - ₹20,000 per month',
+                        description: 'Great opportunity for marketing students to gain hands-on experience in digital marketing campaigns.',
+                        requirements: 'Marketing knowledge, Social Media, Content Creation'
+                    },
+                    {
+                        id: 4,
+                        title: 'Backend Engineer',
+                        company: 'ServerStack',
+                        location: 'Hyderabad',
+                        type: 'full-time',
+                        salary: '₹8,00,000 - ₹12,00,000',
+                        description: 'Design and develop server-side logic, define and maintain databases, and ensure high performance.',
+                        requirements: 'Node.js, Python, MongoDB, API Development'
+                    },
+                    {
+                        id: 5,
+                        title: 'UI/UX Designer',
+                        company: 'Creative Minds',
+                        location: 'Delhi',
+                        type: 'contract',
+                        salary: '₹4,00,000 - ₹6,00,000',
+                        description: 'Create user-centered designs by understanding business requirements and user feedback.',
+                        requirements: 'Figma, Adobe XD, User Research, Wireframing'
+                    },
+                    {
+                        id: 6,
+                        title: 'Sales Executive',
+                        company: 'Growth Partners',
+                        location: 'Chennai',
+                        type: 'full-time',
+                        salary: '₹4,00,000 - ₹7,00,000 + incentives',
+                        description: 'Identify new business opportunities and build relationships with potential clients.',
+                        requirements: 'Sales Experience, Communication Skills, CRM'
+                    }
+                ];
+                
+                // Clear existing job cards
+                jobGrid.innerHTML = '';
+                
+                // Get filter values
+                const typeFilter = document.getElementById('jobTypeFilter').value;
+                const locationFilter = document.getElementById('locationFilter').value;
+                const keywordFilter = document.getElementById('keywordFilter').value.toLowerCase();
+                
+                // Filter jobs
+                const filteredJobs = jobs.filter(job => {
+                    const matchesType = !typeFilter || job.type === typeFilter;
+                    const matchesLocation = !locationFilter || job.location.toLowerCase() === locationFilter;
+                    const matchesKeyword = !keywordFilter || 
+                        job.title.toLowerCase().includes(keywordFilter) ||
+                        job.company.toLowerCase().includes(keywordFilter) ||
+                        job.description.toLowerCase().includes(keywordFilter);
+                    
+                    return matchesType && matchesLocation && matchesKeyword;
+                });
+                
+                // Create job cards
+                filteredJobs.forEach(job => {
+                    const jobCard = document.createElement('div');
+                    jobCard.className = 'job-card';
+                    jobCard.innerHTML = `
+                        <div class="job-header">
+                            <h3 class="job-title">${job.title}</h3>
+                            <p class="job-company">${job.company}</p>
+                        </div>
+                        <div class="job-body">
+                            <div class="job-details">
+                                <div class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${job.location}</span>
+                                </div>
+                                <div class="job-detail">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>${job.type}</span>
+                                </div>
+                            </div>
+                            <p class="job-description">${job.description}</p>
+                            <p><strong>Requirements:</strong> ${job.requirements}</p>
+                        </div>
+                        <div class="job-footer">
+                            <div class="job-salary">${job.salary}</div>
+                            <button class="btn apply-btn" data-job-id="${job.id}">Apply Now</button>
+                        </div>
+                    `;
+                    
+                    jobGrid.appendChild(jobCard);
+                });
+                
+                // Add event listeners to apply buttons
+                document.querySelectorAll('.apply-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const jobId = this.getAttribute('data-job-id');
+                        alert(`Application submitted for Job ID: ${jobId}. Our team will contact you soon!`);
+                    });
+                });
+            }
+            
+            // Filter jobs when filter values change
+            document.getElementById('jobTypeFilter').addEventListener('change', loadJobs);
+            document.getElementById('locationFilter').addEventListener('change', loadJobs);
+            document.getElementById('keywordFilter').addEventListener('input', loadJobs);
+            
+            // Check login status on page load
+            checkLoginStatus();
         });
     </script>
 </body>
